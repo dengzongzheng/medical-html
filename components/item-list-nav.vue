@@ -32,7 +32,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .news-list-nav, .news-list {
     background-color: #fff;
     border-radius: 2px;

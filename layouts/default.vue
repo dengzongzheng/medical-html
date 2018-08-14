@@ -1,12 +1,12 @@
 <template>
   <div>
-    <header class="header">
+    <!--<header class="header">
       <nav class="inner" role="navigation">
         <router-link v-for="item in naves" :key="item.title" :to="item.path">
           {{ item.title }}
         </router-link>
       </nav>
-    </header>
+    </header>-->
     <nuxt nuxt-child-key="none" role="main" />
   </div>
 </template>
@@ -34,13 +34,15 @@
 </script>
 <style>
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 15px;
-    background-color: lighten(#eceef1, 30%);
     margin: 0;
     padding: 0;
     color: #34495e;
     overflow-y: scroll;
+    background: #fff;
+    font-family: 'STHeiti', 'Microsoft YaHei', 'Helvetica', 'Arial', sans-serif;
+    -webkit-text-size-adjust: none;
+    word-break: break-word;
   }
 
   a {

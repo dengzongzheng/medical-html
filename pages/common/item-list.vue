@@ -1,8 +1,14 @@
 <template>
   <div>
-    <ItemListNav :path="'common/item-list'" :page="pageNo" :maxPage="maxPage"></ItemListNav>
-    <item v-for="item in itemData" :key="item.id" :item="item" ></item>
-    <ItemListNav :path="'common/item-list'" :page="pageNo" :maxPage="maxPage"></ItemListNav>
+    <div
+      v-infinite-scroll="loadMore"
+      infinite-scroll-disabled="loading"
+      infinite-scroll-distance="10">
+      <item v-for="item in itemData" :key="item.id" :item="item" ></item>
+    </div>
+    <div class="loading-box">
+      <mt-spinner v-if="isLoading" type="fading-circle"></mt-spinner>
+    </div>
   </div>
 </template>
 
@@ -11,22 +17,33 @@
   import request from "~/services/xhr/xhr-axios"
   import Item from "~/components/item.vue"
   import ItemListNav from "~/components/item-list-nav.vue"
+  import { InfiniteScroll,Indicator } from 'mint-ui';
 
   export default{
     name: "itemList",
     components:{
       Item,
-      ItemListNav
+      ItemListNav,
+      InfiniteScroll,
+      Indicator
     },
     data(){
       return {
         pageSize:10,
         pageNo:1,
         maxPage:10,
-        itemData:[]
+        itemData:[],
+        isLoading:true
       };
     },
     methods:{
+      loadMore:function () {
+        let that = this;
+        that.isLoading = true;
+        that.pageNo = that.pageNo+1;
+        that.listLegal();
+
+      },
       listLegal:function () {
         let that = this;
         request.get("/forService/listLegal",{
@@ -37,8 +54,9 @@
         }).then(function (data) {
 
           if(data.data.code==="1"){
-            that.itemData = data.data.data.data;
+            that.itemData = that.itemData.concat(data.data.data.data);
           }
+          that.isLoading = false;
         })
       }
     },
@@ -56,5 +74,9 @@
 </script>
 
 <style>
-
+  .loading-box{
+    text-align: center;
+    margin: 0 auto;
+    width: 14%;
+  }
 </style>
