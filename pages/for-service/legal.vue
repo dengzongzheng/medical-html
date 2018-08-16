@@ -20,16 +20,16 @@
 
   export default{
     name: "legal",
-    async asyncData({ params }) {
-      // We can use async/await ES6 feature
-      const { data } = await request.get('/forService/legalDetails',{
-         params:{
-           medicalLegalNo: "ML1807753428"
-         }
-      });
-      console.log(data);
-      return { post: data.data }
-    },
+//    async asyncData({ params }) {
+//      // We can use async/await ES6 feature
+//      const { data } = await request.get('/forService/legalDetails',{
+//         params:{
+//           medicalLegalNo: "ML1807753428"
+//         }
+//      });
+//      console.log(data);
+//      return { post: data.data }
+//    },
     components: {
       Item,
       ItemHeader
