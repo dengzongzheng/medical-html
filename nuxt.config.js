@@ -40,6 +40,9 @@ module.exports = {
       'assets/css/main.css'
     ]
   },
+  env: {
+    NODE_ENV: process.env.NODE_ENV
+  },
   plugins:[{src:'~/plugins/mint-ui'}]
 }
 
