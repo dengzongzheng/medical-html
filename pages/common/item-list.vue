@@ -33,7 +33,8 @@
         pageNo:1,
         maxPage:10,
         itemData:[],
-        isLoading:true
+        isLoading:true,
+        loading:false
       };
     },
     methods:{
@@ -55,6 +56,7 @@
 
           if(data.data.code==="1"){
             that.itemData = that.itemData.concat(data.data.data.data);
+            that.loading = data.data.data.totalPage<that.pageNo;
           }
           that.isLoading = false;
         })

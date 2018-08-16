@@ -1,6 +1,16 @@
 <template>
   <router-link :to="{path:'/common/detail',query:{medicalLegalNo:item.medicalLegalNo}}">
-    <div class="item-box" v-show="item.listTitleImage.length==1">
+
+    <div class="item-box" v-show="item.listTitleImage.length==0">
+      <div class="no-image-item-content">
+        <div class="item-title">{{item.title}}</div>
+        <div class="sub-info">
+          <div class="sub-date">2018-08-10</div>
+          <div class="sub-read">120 阅</div>
+        </div>
+      </div>
+    </div>
+    <div class="item-box" v-show="item.listTitleImage.length>=1&&item.listTitleImage.length<3">
       <div class="item-content">
         <div class="item-title">{{item.title}}</div>
         <div class="sub-info">
@@ -71,7 +81,7 @@
 
   .item-image-box img{
     display: inline-block;
-    width: 104px;
+    width: 118px;
     height: 84px;
     text-align: center;
     padding: 10px;
@@ -131,4 +141,7 @@
     border-radius: 12px;
   }
 
+  .no-image-item-content{
+    padding: 10px 10px;
+  }
 </style>

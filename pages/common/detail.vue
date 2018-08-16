@@ -6,9 +6,7 @@
       <div class="content-sub-right"><label class="label-title">被浏览次数:</label><span>2019</span></div>
     </div>
 
-    <div class="content-data">
-      {{detailData.textData}}
-    </div>
+    <div class="content-data" v-html="detailData.textData"></div>
   </div>
 </template>
 
@@ -27,7 +25,6 @@
     methods:{
       detail:function () {
         let that = this;
-//        this.$message.warning("121212")
         request.get("/forService/legalDetails",{
           params: {
             medicalLegalNo: that.no
@@ -56,7 +53,7 @@
 <style>
   .content-title{
     text-align: center;
-    padding: 10px 10px;
+    padding: 30px 10px;
     font-size: 20px;
     font-weight: 400;
     border-bottom: solid 2px #F1F1F1;
@@ -84,5 +81,6 @@
 
   .content-data{
     padding-top: 10px;
+    overflow: hidden;
   }
 </style>
