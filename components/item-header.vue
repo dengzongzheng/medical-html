@@ -34,10 +34,16 @@
 
 <style>
 
-  .nav-box{
-    text-align: center;
-    padding: 10px 10px;
+  .nav-box {
+
+    width: 750px;
     background: white;
+  }
+
+  .nav-image-box{
+    text-align: center;
+    padding-top: 60px;
+    width: 750px;
   }
 
   .nav-title{

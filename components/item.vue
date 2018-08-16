@@ -58,18 +58,19 @@
   .item-box{
     background-color: white;
     border-bottom: solid 1px #F1F1F1;
-    padding-top: 10px;
+    padding: 40px 40px;
   }
 
   .title{
-    padding: 10px 10px;
+    padding: 40px 40px;
     text-decoration: none !important;
     color: black;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 50px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
+    line-height: 50px;
   }
 
 
@@ -81,8 +82,8 @@
 
   .item-image-box img{
     display: inline-block;
-    width: 118px;
-    height: 84px;
+    width: 400px;
+    height: 400px;
     text-align: center;
     padding: 10px;
     border-radius: 12px;
@@ -134,8 +135,8 @@
 
   .item-image-right img{
     display: inline-block;
-    width: 104px;
-    height: 84px;
+    width: 400px;
+    height: 400px;
     text-align: center;
     padding: 10px;
     border-radius: 12px;

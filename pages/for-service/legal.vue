@@ -85,23 +85,23 @@
   }
   .item-list-title{
     background-color: white;
-    margin-top: 20px;
-    padding: 10px 10px;
+    margin-top: 40px;
+    padding: 20px 20px;
     border-bottom: solid 1px #F1F1F1;
-    font-size: 20px;
+    font-size: 40px;
   }
 
   .all-item{
     background: white;
-    padding: 10px 10px;
-    height: 38px;
+    padding: 20px 20px;
+    height: 50px;
     color: black;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .all-text{
     float: left;
-    font-size: 20px;
+    font-size: 40px;
   }
 
   .all-img img {
@@ -111,30 +111,4 @@
     float: right;
   }
 
-  .el-row {
-    margin-bottom: 20px;
-  &:last-child {
-     margin-bottom: 0;
-   }
-  }
-  .el-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
 </style>
