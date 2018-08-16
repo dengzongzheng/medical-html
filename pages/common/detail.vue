@@ -45,8 +45,8 @@
     },
     computed: {
 
-    },
-    middleware:'auth'
+    }
+//    middleware:'auth'
   };
 </script>
 
