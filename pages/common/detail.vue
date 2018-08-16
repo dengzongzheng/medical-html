@@ -23,7 +23,7 @@
       };
     },
     methods:{
-      detail:function () {
+      getDetail:function () {
         let that = this;
         request.get("/forService/legalDetails",{
           params: {
@@ -40,8 +40,8 @@
     },
     created:function () {
       this.no = this.$route.query.medicalLegalNo;
-      console.log(this.no)
-      this.detail();
+      console.log(this.no);
+      this.getDetail();
     },
     computed: {
 
