@@ -34,7 +34,7 @@ module.exports = {
         })
       }
     },
-    vendor: ['mint-ui'],
+    vendor: ['mint-ui','axios'],
     css: [
       'mint-ui/lib/style.min.css', // 全部引用的时候需要用到
       'assets/css/main.css'
