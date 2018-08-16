@@ -21,9 +21,12 @@
     }
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "axios": "^0.18.0",
     "mint-ui": "^2.2.13",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "peer": "^0.2.10",
+    "postcss-px2rem": "^0.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

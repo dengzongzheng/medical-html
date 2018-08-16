@@ -85,10 +85,10 @@
   }
   .item-list-title{
     background-color: white;
-    margin-top: 40px;
+    margin-top: 24px;
     padding: 20px 20px;
     border-bottom: solid 1px #F1F1F1;
-    font-size: 40px;
+    font-size: 34px;
   }
 
   .all-item{
@@ -101,12 +101,12 @@
 
   .all-text{
     float: left;
-    font-size: 40px;
+    font-size: 34px;
   }
 
   .all-img img {
-    width: 11px;
-    height: 21px;
+    width: 22px;
+    height: 42px;
     display: inline-block;
     float: right;
   }

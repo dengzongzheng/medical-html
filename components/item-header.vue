@@ -47,16 +47,19 @@
   }
 
   .nav-title{
-    font-size: 20px;
+    font-size: 36px;
     font-weight: 600;
     padding: 10px 10px;
+    text-align: center;
   }
 
   .nav-text{
     color: #635C5C;
-    font-size: 16px;
+    font-size: 26px;
     text-align: center;
     font-weight: lighter;
+    padding: 54px;
+    line-height: 50px;
   }
 
 </style>

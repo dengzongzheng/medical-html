@@ -24,7 +24,7 @@
     </div>
     <div class="item-box" v-show="item.listTitleImage.length>2">
       <div class="content-box">
-        <div class="title">{{item.title}}</div>
+        <div class="title">您提供全面的法律法规，条例释义，您身边的法律助手，随时随地为您提供法律知识，欢迎使用您提供全面的法律法规，条例释义，您身边的法律助手，随时随地为您提供法律知识，欢迎使用您提供全面的法律法规，条例释义，您身边的法律助手，随时随地为您提供法律知识，欢迎使用您提供全面的法律法规，条例释义，您身边的法律助手，随时随地为您提供法律知识，欢迎使用{{item.title}}</div>
         <div class="item-image-box">
           <img v-for="im in item.listTitleImage" :key="im.imagePath" :src="item.imageServerPath+im"/>
         </div>
@@ -58,19 +58,23 @@
   .item-box{
     background-color: white;
     border-bottom: solid 1px #F1F1F1;
-    padding: 40px 40px;
+    padding: 10px 20px;
   }
 
   .title{
-    padding: 40px 40px;
+    margin: 10px 10px;
     text-decoration: none !important;
-    color: black;
     cursor: pointer;
-    font-size: 50px;
+    height:26px;
+    font-size:28px;
+    font-family:PingFangSC-Medium;
+    color:rgba(99,92,92,1);
+    line-height:30px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
-    line-height: 50px;
+
   }
 
 
@@ -82,15 +86,16 @@
 
   .item-image-box img{
     display: inline-block;
-    width: 400px;
-    height: 400px;
+    width: 224px;
+    height: 150px;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     border-radius: 12px;
   }
 
   .sub-box{
     padding: 0px 10px;
+    padding-top: 10px;
     color: #c8c4d8;
     line-height: 35px;
   }
@@ -110,23 +115,28 @@
 
   .item-content{
     float: left;
-    width: 213px;
-    padding: 10px 10px;
+    width: 470px;
+    /*padding: 10px 10px;*/
   }
 
   .item-title{
     text-decoration: none !important;
-    color: black;
-    cursor: pointer;
-    font-size: 18px;
+    height:42px;
+    font-size:28px;
+    font-family:PingFangSC-Medium;
+    color:rgba(99,92,92,1);
+    line-height:42px;
+    min-height: 120px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    min-height: 56px;
   }
 
   .sub-info{
-    padding-top: 20px;
+    padding-top: 10px;
+    color: #c8c4d8;
+    line-height: 35px;
   }
 
   .item-image-right{
@@ -135,14 +145,15 @@
 
   .item-image-right img{
     display: inline-block;
-    width: 400px;
-    height: 400px;
+    width: 224px;
+    height: 150px;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     border-radius: 12px;
   }
 
   .no-image-item-content{
-    padding: 10px 10px;
+    /*padding: 10px 10px;*/
   }
+
 </style>

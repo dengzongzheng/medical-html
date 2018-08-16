@@ -11,7 +11,11 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      { src: '/js/flexible.js', type: 'text/javascript', charset: 'utf-8'}
+    ],
+
   },
   /*
   ** Customize the progress bar color
@@ -33,7 +37,11 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
+    },postcss: [
+      require('postcss-px2rem')({
+        remUnit: 75 // 转换基本单位
+      })
+    ],
     vendor: ['mint-ui','axios','~/services/xhr/config'],
     css: [
       'mint-ui/lib/style.min.css', // 全部引用的时候需要用到

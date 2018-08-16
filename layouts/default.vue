@@ -50,45 +50,5 @@
     text-decoration: none;
   }
 
-  .header {
-    background-color: #188269;
-    z-index: 999;
-    height: 55px;
-    text-align: center;
-  }
-
-  .inner {
-    max-width: 800px;
-    box-sizing: border-box;
-    margin: 0px auto;
-    padding: 15px 5px;
-  }
-
-  .inner a{
-    font-size: 18px;
-    padding-right: 10px;
-    color: white;
-  }
-
-  .github {
-    color: #fff;
-    font-size: 0.9em;
-    margin: 0;
-    float: right;
-  }
-
-  .logo {
-    width: 24px;
-    margin-right: 10px;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .view {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-  }
-
 </style>
 
