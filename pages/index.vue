@@ -1,7 +1,7 @@
 <script>
   export default {
     fetch({ redirect }) {
-      redirect("/for_service/legal")
+      redirect("/for-service/legal")
     }
   }
 </script>
