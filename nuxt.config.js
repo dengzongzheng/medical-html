@@ -51,6 +51,6 @@ module.exports = {
   env: {
     NODE_ENV: process.env.NODE_ENV
   },
-  plugins:[{src:'~/plugins/mint-ui'}]
+  plugins:[{src:'~/plugins/mint-ui',ssr:false}]
 }
 
