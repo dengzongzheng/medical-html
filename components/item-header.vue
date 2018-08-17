@@ -36,14 +36,12 @@
 
   .nav-box {
 
-    width: 750px;
     background: white;
   }
 
   .nav-image-box{
     text-align: center;
     padding-top: 60px;
-    width: 750px;
   }
 
   .nav-title{
