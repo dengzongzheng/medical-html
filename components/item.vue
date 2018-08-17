@@ -58,14 +58,14 @@
   .item-box{
     background-color: white;
     border-bottom: solid 1px #F1F1F1;
-    padding: 10px 20px;
+    padding: 18px 20px;
   }
 
   .title{
-    margin: 10px 10px;
+    margin: 18px 10px;
     text-decoration: none !important;
     cursor: pointer;
-    height:26px;
+    height:30px;
     font-size:28px;
     font-family:PingFangSC-Medium;
     color:rgba(99,92,92,1);
