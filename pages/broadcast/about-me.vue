@@ -79,6 +79,7 @@
   .header-image {
     background-image: url("../../assets/images/jd.png");
     background-repeat: no-repeat;
+    background-size: contain;
     height: 362px;
     width:100%;
   }
