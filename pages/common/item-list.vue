@@ -4,8 +4,11 @@
       v-infinite-scroll="loadMore"
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10">
-      <item v-for="item in itemData" :key="item.id" :item="item" ></item>
+      <mt-loadmore  :top-method="loadTop" ref="loadmore">
+        <item v-for="item in itemData" :key="item.id" :item="item" ></item>
+      </mt-loadmore>
     </div>
+
     <div class="loading-box">
       <mt-spinner v-if="isLoading" type="fading-circle"></mt-spinner>
     </div>
@@ -17,7 +20,7 @@
   import request from "~/services/xhr/xhr-axios"
   import Item from "~/components/item.vue"
   import ItemListNav from "~/components/item-list-nav.vue"
-  import { InfiniteScroll,Indicator } from 'mint-ui';
+  import { InfiniteScroll,Indicator,Loadmore } from 'mint-ui';
 
   export default{
     name: "itemList",
@@ -25,7 +28,8 @@
       Item,
       ItemListNav,
       InfiniteScroll,
-      Indicator
+      Indicator,
+      Loadmore
     },
     data(){
       return {
@@ -34,7 +38,7 @@
         maxPage:10,
         itemData:[],
         isLoading:true,
-        loading:false
+        loading:true
       };
     },
     methods:{
@@ -44,6 +48,15 @@
         that.pageNo = that.pageNo+1;
         that.listLegal();
 
+      },
+      loadTop:function () {
+
+        let that = this;
+        that.pageNo = 1;
+        that.pageSize = 10;
+        that.itemData = [];
+        that.listLegal();
+        this.$refs.loadmore.onTopLoaded();
       },
       listLegal:function () {
         let that = this;
@@ -55,8 +68,8 @@
         }).then(function (data) {
 
           if(data.data.code==="1"){
+            that.loading = data.data.data.totalPage<=that.pageNo;
             that.itemData = that.itemData.concat(data.data.data.data);
-            that.loading = data.data.data.totalPage<that.pageNo;
           }
           that.isLoading = false;
         })

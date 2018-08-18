@@ -5,8 +5,8 @@
       <div class="no-image-item-content">
         <div class="item-title">{{item.title}}</div>
         <div class="sub-info">
-          <div class="sub-date">2018-08-10</div>
-          <div class="sub-read">120 阅</div>
+          <div class="sub-date">{{item.updateTime}}</div>
+          <div class="sub-read">{{item.readCount}} 阅</div>
         </div>
       </div>
     </div>
@@ -14,8 +14,8 @@
       <div class="item-content">
         <div class="item-title">{{item.title}}</div>
         <div class="sub-info">
-          <div class="sub-date">2018-08-10</div>
-          <div class="sub-read">120 阅</div>
+          <div class="sub-date">{{item.updateTime}}</div>
+          <div class="sub-read">{{item.readCount}} 阅</div>
         </div>
       </div>
       <div class="item-image-right">
@@ -30,8 +30,8 @@
         </div>
       </div>
       <div class="sub-box">
-        <div class="sub-date">2018-08-10</div>
-        <div class="sub-read">120 阅</div>
+        <div class="sub-date">{{item.updateTime}}</div>
+        <div class="sub-read">{{item.readCount}} 阅</div>
       </div>
     </div>
   </router-link>
@@ -69,7 +69,7 @@
     font-size:28px;
     font-family:PingFangSC-Medium;
     color:rgba(99,92,92,1);
-    line-height:30px;
+    line-height:35px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
