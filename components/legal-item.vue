@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{path:'/common/detail',query:{medicalLegalNo:item.medicalLegalNo}}">
+  <router-link :to="{path:'/common/detail',query:{medicalNo:item.medicalLegalNo,type:'legal'}}">
 
     <div class="item-box" v-show="item.listTitleImage.length==0">
       <div class="no-image-item-content">
@@ -39,7 +39,7 @@
 
 <script>
   export default{
-    name: "item",
+    name: "legal-item",
     props:{
       item:{
         type:Object,

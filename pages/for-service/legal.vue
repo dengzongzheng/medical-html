@@ -3,7 +3,7 @@
     <item-header :nav_image="nav_image" :nav_title="nav_title" :nav_text="nav_text"
                    :nav_type="nav_type"></item-header>
     <div class="item-list-title">消息</div>
-    <item v-for="item in legalItems" :key="item.id" :item="item" ></item>
+    <legal-item v-for="item in legalItems" :key="item.id" :item="item" ></legal-item>
     <router-link :to="'/common/item-list'">
       <div class="all-item">
         <div class="all-text">全部</div>
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-  import Item from "~/components/item.vue"
+  import LegalItem from "~/components/legal-item.vue"
   import ItemHeader  from "~/components/item-header.vue"
   import request from "~/services/xhr/xhr-axios"
   import { rootPath} from '~/services/xhr/config'
@@ -31,7 +31,7 @@
 //      return { post: data.data }
 //    },
     components: {
-      Item,
+      LegalItem,
       ItemHeader
     },
     metaInfo: {

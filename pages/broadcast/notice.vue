@@ -1,88 +1,96 @@
 <template>
   <div class="content-box">
-    <div class="notice-box">
-      <div class="header-box">
-        <div class="header-image">
-          <img src="../../assets/images/jd.png"/>
+    <div
+      v-infinite-scroll="loadMore"
+      infinite-scroll-disabled="loading"
+      infinite-scroll-distance="10">
+      <mt-loadmore  :top-method="loadTop" ref="loadmore">
+        <div v-if="haveData">
+          <notice-item v-for="item in itemData" :key="item.id" :itemData="item" :type="'notice'"></notice-item>
         </div>
-      </div>
-      <div class="title-box">
-        <div class="left-box">
-          这是我的标题啊。哈哈，哇卡卡哎呀哎呀哎呀
-        </div>
-        <div class="right-box">
-          <img src="../../assets/images/jd.png"/>
-        </div>
-        <div class="other-class">
-          <div class="time">2018-09-20</div>
-          <div class="read-count">201<label>阅</label></div>
-        </div>
-      </div>
-    </div>
 
-    <div class="notice-box">
-      <div class="header-box">
-        <div class="header-image">
-          <img src="../../assets/images/jd.png"/>
+        <div v-if="!haveData">
+          <no-item></no-item>
         </div>
-      </div>
-      <div class="title-box">
-        <div class="left-box">
-          这是我的标题啊。哈哈，哇卡卡哎呀哎呀哎呀
-        </div>
-        <div class="right-box">
-          <img src="../../assets/images/jd.png"/>
-        </div>
-        <div class="other-class">
-          <div class="time">2018-09-20</div>
-          <div class="read-count">201<label>阅</label></div>
-        </div>
-      </div>
+      </mt-loadmore>
     </div>
-
-    <div class="notice-box">
-      <div class="header-box">
-        <div class="header-image">
-          <img src="../../assets/images/jd.png"/>
-        </div>
-      </div>
-      <div class="title-box">
-        <div class="left-box">
-          这是我的标题啊。哈哈，哇卡卡哎呀哎呀哎呀
-        </div>
-        <div class="right-box">
-          <img src="../../assets/images/jd.png"/>
-        </div>
-        <div class="other-class">
-          <div class="time">2018-09-20</div>
-          <div class="read-count">201<label>阅</label></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="notice-box">
-      <div class="header-box">
-        <div class="header-image">
-          <img src="../../assets/images/jd.png"/>
-        </div>
-      </div>
-      <div class="title-box">
-        <div class="left-box">
-          这是我的标题啊。哈哈，哇卡卡哎呀哎呀哎呀
-        </div>
-        <div class="right-box">
-          <img src="../../assets/images/jd.png"/>
-        </div>
-        <div class="other-class">
-          <div class="time">2018-09-20</div>
-          <div class="read-count">201<label>阅</label></div>
-        </div>
-      </div>
+    <div class="loading-box">
+      <mt-spinner v-if="isLoading" type="fading-circle"></mt-spinner>
     </div>
   </div>
 </template>
 <script>
+  import request from "~/services/xhr/xhr-axios"
+  import NoticeItem from "~/components/notice-item.vue"
+  import ItemListNav from "~/components/item-list-nav.vue"
+  import NoItem  from "~/components/no-item.vue"
+  import { InfiniteScroll,Indicator,Loadmore } from 'mint-ui';
 
+  export default{
+    name: "itemList",
+    components:{
+      NoticeItem,
+      ItemListNav,
+      NoItem,
+      InfiniteScroll,
+      Indicator,
+      Loadmore
+    },
+    data(){
+      return {
+        pageSize:10,
+        pageNo:1,
+        maxPage:10,
+        itemData:[],
+        isLoading:true,
+        loading:true,
+        haveData:true
+      };
+    },
+    methods:{
+      loadMore:function () {
+        let that = this;
+        that.isLoading = true;
+        that.pageNo = that.pageNo+1;
+        that.listLegal();
+
+      },
+      loadTop:function () {
+
+        let that = this;
+        that.pageNo = 1;
+        that.pageSize = 10;
+        that.itemData = [];
+        that.listLegal();
+        this.$refs.loadmore.onTopLoaded();
+      },
+      listLegal:function () {
+        let that = this;
+        request.get("/broadcast/listNotice",{
+          params: {
+            pageSize: that.pageSize,
+            pageNo: that.pageNo
+          }
+        }).then(function (data) {
+
+          if(data.data.code==="1"){
+            that.loading = data.data.data.totalPage<=that.pageNo;
+            that.itemData = that.itemData.concat(data.data.data.data);
+          }
+          that.isLoading = false;
+        })
+      }
+    },
+    created:function () {
+      this.pageNo = this.$route.params.pageNo>0?this.$route.params.pageNo:1;
+      this.pageSize = this.$route.params.pageSize>0?this.$route.params.pageSize:10;
+      this.listLegal();
+
+    },
+    computed:{
+
+    }
+  };
 </script>
 <style>
 
@@ -90,56 +98,9 @@
     background-color: #EBEBEB;
   }
 
-  .notice-box {
-    padding: 50px 20px;
-    border-radius:6px;
-  }
-
-  .header-image img {
-    width: 100%;
-    height: 268px;
-  }
-
-  .title-box{
-    background-color: #FFFFFF;
-    padding:46px 26px;
-  }
-
-  .left-box{
-    display: inline-block;
-    font-size:28px;
-    font-family:PingFangSC-Medium;
-    color:rgba(99,92,92,1);
-    line-height:40px;
-    width: 70%;
-    vertical-align: top;
-  }
-
-  .right-box{
-    display: inline-block;
-    width:30%;
-  }
-
-  .right-box img{
-    width: 160px;
-    height: 120px;
-    float: right;
-  }
-
-  .other-class{
-    font-size: 24px;
-  }
-
-  .time{
-    display: inline-block;
-    padding-right: 50px;
-  }
-
-  .read-count{
-    display: inline-block;
-  }
-
-  .read-count label{
-    padding:0 10px;
+  .loading-box{
+    text-align: center;
+    margin: 0 auto;
+    width: 14%;
   }
 </style>

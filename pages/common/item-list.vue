@@ -5,7 +5,12 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10">
       <mt-loadmore  :top-method="loadTop" ref="loadmore">
-        <item v-for="item in itemData" :key="item.id" :item="item" ></item>
+        <div class="haveData">
+          <legal-item v-for="item in itemData" :key="item.id" :item="item" ></legal-item>
+        </div>
+        <div v-if="!haveData">
+          <no-item></no-item>
+        </div>
       </mt-loadmore>
     </div>
 
@@ -18,15 +23,17 @@
 <script>
 
   import request from "~/services/xhr/xhr-axios"
-  import Item from "~/components/item.vue"
+  import LegalItem from "~/components/legal-item.vue"
   import ItemListNav from "~/components/item-list-nav.vue"
   import { InfiniteScroll,Indicator,Loadmore } from 'mint-ui';
+  import NoItem  from "~/components/no-item.vue"
 
   export default{
     name: "itemList",
     components:{
-      Item,
+      LegalItem,
       ItemListNav,
+      NoItem,
       InfiniteScroll,
       Indicator,
       Loadmore
@@ -38,7 +45,8 @@
         maxPage:10,
         itemData:[],
         isLoading:true,
-        loading:true
+        loading:true,
+        haveData:true
       };
     },
     methods:{

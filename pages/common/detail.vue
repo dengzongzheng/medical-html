@@ -19,16 +19,30 @@
     name: "detail",
     data(){
       return {
-        no:"",
+        medicalNo:"",
+        type:"",
         detailData:""
       };
     },
     methods:{
       getDetail:function () {
         let that = this;
-        request.get("/forService/legalDetails",{
+        var url = "";
+        if(that.type=="notice"){
+          url = "/broadcast/noticeDetails";
+        }else if(that.type=="legal"){
+          url = "/forService/legalDetails";
+        }else if(that.type=="information"){
+          url = "/broadcast/informationDetails";
+        }else if(that.type=="workNews"){
+          url = "/broadcast/workNewsDetails";
+        }else{
+            return;
+        }
+
+        request.get(url,{
           params: {
-            medicalLegalNo: that.no
+            medicalNo: that.medicalNo
           }
         }).then(function (data) {
           if(data.data.code==="1"){
@@ -38,7 +52,8 @@
       }
     },
     created:function () {
-      this.no = this.$route.query.medicalLegalNo;
+      this.medicalNo = this.$route.query.medicalNo;
+      this.type = this.$route.query.type;
       this.getDetail();
     },
     computed: {
