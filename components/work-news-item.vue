@@ -31,28 +31,28 @@
 <style>
   .left-box{
     display: inline-block;
-    width:33%;
+    width:38%;
     float: left;
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
   .left-box img {
-    width: 232px;
-    height: 144px;
+    width: 284px;
+    height: 180px;
     border-radius: 6px;
 
   }
 
   .right-box{
     display: inline-block;
-    width:63%;
+    width:58%;
     height: 144px;
 
   }
 
   .title-box{
-    font-size: 14px;
-    min-height: 108px;
+    font-size: 28px;
+    min-height: 138px;
   }
 
   .data-box{
