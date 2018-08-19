@@ -62,7 +62,7 @@
   }
 
   .date-box label{
-    font-size: 8px;
+    font-size: 18px;
     margin-right: 20px;
     color: #9e9e9e;
   }
