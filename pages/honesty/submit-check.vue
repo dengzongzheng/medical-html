@@ -2,18 +2,7 @@
   <div>
 
     <div class="check-box">
-      <div class="check-type">
-        <input type="radio" name="range-type" class="range-type"/>
-        <i class="range-type-i hotel-i">住宿业</i>
-      </div>
-      <div class="check-type">
-        <input type="radio" name="range-type" class="range-type"/>
-        <i class="range-type-i hotel-i">住宿业</i>
-      </div>
-      <div class="check-type">
-        <input type="radio" name="range-type" class="range-type"/>
-        <i class="range-type-i hotel-i">住宿业</i>
-      </div>
+      <select-range v-for="item in ranges" :key="item.value"></select-range>
     </div>
 
     <div class="line"></div>
@@ -104,8 +93,89 @@
   </div>
 </template>
 <script>
+  import SelectRange from "~/components/select-range-type-box.vue"
   export default{
-      name:"submit-check"
+      name:"submit-check",
+      components:{
+        SelectRange
+      },
+    data(){
+      return {
+          ranges:[
+            {
+                name:"公共场所",
+                value:"1",
+                rangeItems:[
+                  {
+                      name:"住宿业",
+                      value:"1",
+                      className:"hotel-i"
+                  },
+                  {
+                    name:"理发店",
+                    value:"2",
+                    className:"hotel-i"
+                  },
+                  {
+                    name:"美容店",
+                    value:"3",
+                    className:"hotel-i"
+                  },
+                  {
+                    name:"公共浴室",
+                    value:"1",
+                    className:"hotel-i"
+                  },
+                  {
+                    name:"商场",
+                    value:"1",
+                    className:"hotel-i"
+                  },
+                  {
+                    name:"经营者",
+                    value:"1",
+                    className:"hotel-i"
+                  }
+                ]
+            },
+            {
+              name:"学校卫生",
+              value:"2",
+              rangeItems:[
+
+              ]
+            },
+            {
+              name:"医疗机构",
+              value:"3",
+              rangeItems:[
+                {
+                  name:"传染病防控",
+                  value:"1",
+                  className:"hotel-i"
+                },
+                {
+                  name:"放射卫生",
+                  value:"2",
+                  className:"hotel-i"
+                },
+                {
+                  name:"依法执业",
+                  value:"3",
+                  className:"hotel-i"
+                }
+              ]
+            },
+            {
+              name:"供水单位",
+              value:"4",
+              rangeItems:[
+
+              ]
+            }
+          ]
+      };
+    }
   }
 </script>
 <style>
@@ -113,45 +183,8 @@
     padding: 2px 2px;
   }
 
-  .check-type{
-    width:348px;
-    height:144px;
-    background:rgba(255,255,255,1);
-    border:6px solid rgba(209,189,189,1);
-    text-align: center;
-    position: relative;
-    display: inline-block;
-    margin:1px 2px;
-  }
-
-  .range-type{
-    width:346px;
-    height:144px;
-    opacity: 0;
-    position: relative;
-  }
-
-  .hotel-i{
-    background-size: 100px 84px;
-    background: url("~/assets/images/hotle.png") no-repeat 40px 40px;
-  }
-
-  .range-type-i {
-    font-style: normal;
-    width:348px;
-    padding-left: 30px;
-    height:144px;
-    font-size: 28px;
-    font-family: PingFangSC-Medium;
-    font-weight: 500;
-    color: rgba(58, 24, 24, 1);
-    line-height: 144px;
-    top: 0;
-    left: 0;
-    position: absolute;
-  }
-
   .line{
+    clear: both;
     margin-top: 10px;
     height: 2px;
     border-bottom: 2px solid #979797;
@@ -179,7 +212,7 @@
   .answer {
     display: inline-block;
     width: 100px;
-    height: 30px;
+    height: 40px;
     border:none;
     border-bottom:1px solid black;
   }

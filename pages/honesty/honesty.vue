@@ -42,6 +42,7 @@
      },
      methods:{
         toSubmitQuestion:function () {
+          console.log(this.SelectType);
           this.$router.push({ path: '/honesty/submit-check', params: { placeId: 123 }})
         }
      }
@@ -53,7 +54,7 @@
     padding: 0 42px;
   }
   .selected-title{
-    padding-top: 46px;
+    padding-top: 20px;
     padding-left: 3px;
     height:66px;
     font-size:48px;
@@ -74,7 +75,7 @@
     height: 100px;
     width: 400px;
     border:2px solid red;
-    border-radius: 6px;
+    border-radius: 1px;
     background-color: red;
     color: white;
     font-size: 40px;

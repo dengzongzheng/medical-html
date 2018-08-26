@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="select-box">
+    <div class="select-box" >
       <input type="radio" name="place" class="select-type" v-bind:value="item.value" />
       <i class="select-type-i" :class="item.icon+'-i'">{{item.name}}</i>
     </div>
@@ -18,10 +18,14 @@
   };
 </script>
 <style>
+
+  .box-selected{
+    border-color: red !important;
+  }
   .select-box {
 
     font-style: normal;
-    margin-top: 66px;
+    margin-top: 34px;
     width: 666px;
     height: 160px;
     border-radius: 10px;
@@ -47,8 +51,6 @@
     /*background-color: #FFFFFF;*/
     /*border: 2px solid #EF5104;*/
     /*border-radius: 4px;*/
-
-
   }
   .select-type:checked+i:after{
     content: "";
